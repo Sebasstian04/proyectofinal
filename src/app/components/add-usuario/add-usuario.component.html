@@ -1,0 +1,54 @@
+<form #myForm="ngForm">
+  <div class="card col-md-7 container">
+    <div class="card-body text-center">
+  <div *ngIf="!submitted">
+    <h2 class="text-center">Registrar Usuario</h2>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="nombre">NOMBRE</label>
+        <input type="text" class="form-control" id="nombre" required [(ngModel)]="usuario.nombre" name="nombre" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="apellido">APELLIDO</label>
+        <input type="text" class="form-control" id="apellido" required [(ngModel)]="usuario.apellido" name="apellido" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="municipio">MUNICIPIO</label>
+        <input type="text" class="form-control" id="municipio" required [(ngModel)]="usuario.municipio"
+          name="municipio" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="correo">CORREO</label>
+        <input type="text" class="form-control" id="correo" required [(ngModel)]="usuario.correo" name="correo" />
+      </div>
+    
+      <div class="col-md-6 mb-3">
+        <label for="cedula">CEDULA</label>
+        <input type="text" class="form-control" id="cedula" required [(ngModel)]="usuario.cedula" name="cedula" />
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+      <label for="usuario">USUARIO</label>
+      <input type="text" class="form-control" id="usuario" required [(ngModel)]="usuario.login" name="usuario" />
+    </div>
+      <div class="col-md-6 mb-3">
+      <label for="password">PASSWORD</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="usuario.password"
+        name="password" />
+    </div>
+  </div>
+    </div>
+    <button (click)="saveUsuario()" [disabled]="!myForm.form.valid" class="btn btn-success">REGISTRAR</button>
+  </div>
+</div>
+
+  <div *ngIf="submitted">
+    <h4>Se creo satisfactoriamente!</h4>
+    <button class="btn btn-success" (click)="newUsuario()">Add</button>
+  </div>
+
+  {{msgError}}
+</form>

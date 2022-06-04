@@ -1,0 +1,74 @@
+<form #myForm="ngForm">
+
+  <div class="container">
+    <div class="card">
+      <h3 class="text-center">LISTA DE RECETAS</h3>
+      <div class="card-body">
+        <div class="form-group form-inline">
+          Buscar receta por nombre:
+          <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="searchTerm"
+            (input)="search($event.target.value)" />
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <th>NOMBRE RECETA</th>
+            <th>CANTIDAD</th>
+            <th>INGREDIENTES</th>
+            <th>DESCRIPCION</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of recetaSet">
+              <td>{{item.nombre}}</td>
+              <td>{{item.cantidad}}</td>
+              <td>{{item.ingredientes}}</td>
+              <td>{{item.descripcion}}</td>
+              <td><button class="btn btn-info btn-sm" (click)="triggerModal(modalData, item)">
+                  VER </button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #modalData let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Receta a Preparar</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div style="width: 400px; margin: auto;">
+        <div class="submit-form">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label class="text-primary">Nombre Receta</label>
+              <P>{{ currentReceta.nombre }}</P>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="text-primary">Cantidad de Personas</label>
+              <P>{{ currentReceta.cantidad }} persona(s)</P>
+            </div>
+            <div class="form-row">
+              <div class="col-md-11 mb-3">
+                <label class="text-primary">Ingredientes</label>
+                <P>{{ currentReceta.ingredientes }}</P>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label class="text-primary">Como Prepararla</label>
+                  <P>{{ currentReceta.descripcion }}</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </ng-template>
+
+
+</form>

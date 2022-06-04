@@ -1,0 +1,46 @@
+<form #myForm="ngForm">
+  <div class="card col-md-7 container">
+    <div class="card-body text-center">
+      <div class="submit-form">
+        <div *ngIf="!submitted">
+          <h2 class="text-center">Registrar Receta</h2>
+          <div class="form-row">
+            <div class="col-md-7 mb-3">
+              <label for="nombre">NOMBRE RECETA</label>
+              <input type="text" class="form-control" id="nombre" required [(ngModel)]="receta.nombre" name="nombre" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="nombre">CANTIDAD (personas)</label>
+              <input type="numeric" class="form-control" id="nombre" required [(ngModel)]="receta.cantidad"
+                name="cantidad" />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-11 mb-3">
+          <label for="nombre">INGREDIENTES (separados por comas)</label>
+          <input type="text" class="form-control" id="ingredientes" required [(ngModel)]="receta.ingredientes"
+            name="ingredientes" />
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-11 mb-3">
+          <label for="author">DESCRIPCION (descripcion de corrido)</label>
+          <input type="text" class="form-control" id="descripcion" required [(ngModel)]="receta.descripcion"
+            name="descripcion" />
+        </div>
+        </div>
+
+        <button (click)="saveReceta()" [disabled]="!myForm.form.valid" class="btn btn-success">Ingresar Receta</button>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4>Se creo satisfactoriamente!</h4>
+        <button class="btn btn-success" (click)="newReceta()">Add</button>
+      </div>
+
+    </div>
+  </div>
+  
+  {{msgError}}
+</form>

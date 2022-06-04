@@ -1,0 +1,24 @@
+<div>
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn" routerLink="listReceta" class="nav-link">Lista de Recetas</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn" routerLink="addReceta" class="nav-link">Agregar Receta</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn" routerLink="updateUsuario" class="nav-link">Actualizar Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout" (click)=handleLogout()>Inicio</a>
+        </li>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+  </div>
+

@@ -1,0 +1,98 @@
+<form #myForm="ngForm">
+
+    <div style="width: 400px; margin: auto;">
+        <div class="submit-form">
+          <div *ngIf="!submitted">
+            
+          
+            <div class="form-group">
+              <label for="nombre">NOMBRE</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                required
+                [(ngModel)]="usuario.nombre"
+                name="nombre"
+              />
+            </div>
+            <div class="form-group">
+                <label for="apellido">APELLIDO</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="apellido"
+                  required
+                  [(ngModel)]="usuario.apellido"
+                  name="apellido"
+                />
+              </div>
+              <div class="form-group">
+                <label for="municipio">MUNICIPIO</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="municipio"
+                  required
+                  [(ngModel)]="usuario.municipio"
+                  name="municipio"
+                />
+              </div>
+              <div class="form-group">
+                <label for="correo">CORREO</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="correo"
+                  required
+                  [(ngModel)]="usuario.correo"
+                  name="correo"
+                />
+              </div>
+              <div class="form-group">
+                <label for="cedula">CEDULA</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cedula"
+                  required
+                  [(ngModel)]="usuario.cedula"
+                  name="cedula"
+                />
+              </div>
+              <div class="form-group">
+                <label for="usuario">USUARIO</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="usuario"
+                  required
+                  [(ngModel)]="usuario.login"
+                  name="usuario"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">PASSWORD</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  required
+                  [(ngModel)]="usuario.password"
+                  name="password"
+                />
+              </div>
+              <hr>
+
+            <button (click)="saveUsuario()" [disabled]="!myForm.form.valid" class="btn btn-success">REGISTRAR</button>
+          </div>
+          
+          <div *ngIf="submitted">
+            <h4>Se creo satisfactoriamente!</h4>
+            <button class="btn btn-success" (click)="newUsuario()">Add</button>
+          </div>
+          
+        </div> 
+      </div>
+      {{msgError}}
+    </form>
